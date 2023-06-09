@@ -1,16 +1,18 @@
 const express = require('express');
 const {instrument} = require('@socket.io/admin-ui')
+const cors = require('cors')
 const app = express();
 const {Server} = require('socket.io');
 const http = require('http');
-
-const io = new Server({
+app.use(cors())
+var server = app.listen(process.env.PORT||4000);
+var io = require('socket.io')(server, {
     cors: {
-      origin: '*'
+      origin: '*',
     }
-  });
+});
   
-  io.listen(process.env.PORT);
+
   
 
 
