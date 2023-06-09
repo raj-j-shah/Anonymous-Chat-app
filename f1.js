@@ -9,7 +9,7 @@ var server = app.listen(process.env.PORT||4000);
 
 var io = require('socket.io')(server, {
     cors: {
-      origin: '*',
+      origin: '*'
     }
 });
   console.log("started!");
