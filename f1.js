@@ -1,8 +1,9 @@
 const express = require('express')
 const app = express()
+const cors = require('cors')
 const server = require('http').createServer(app);
 const io = require('socket.io')(server)
-
+app.use(cors());
 
 // Magic Lines
 server.prependListener("request", (req, res) => {
@@ -14,15 +15,12 @@ server.listen(process.env.PORT||4000, () => {
 });
 
 const {instrument} = require('@socket.io/admin-ui')
-const cors = require('cors')
-
-
-app.use(cors())
 
 
 
 
-  console.log("started!");
+
+console.log("started!");
 
 
 
