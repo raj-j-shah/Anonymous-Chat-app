@@ -10,10 +10,11 @@ const io = new Server({
     }
   });
   
-  io.listen(4000);
+ 
   
 
-const port = process.env.port || 3003;
+const port = process.env.PORT || 3003;
+io.listen(port);
 
 io.on("connect_error", (err) => {
     console.log(`connect_error due to ${err.message}`);
