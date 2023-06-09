@@ -34,7 +34,7 @@ io.on('connection', (socket) => {
   });
 });
 
-instrument(io, { auth: false });
+instrument(io, { auth: false, mode: "development"});
 app.use((_req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
   res.header(
