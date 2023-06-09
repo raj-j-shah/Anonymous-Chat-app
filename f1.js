@@ -6,14 +6,13 @@ const {Server} = require('socket.io');
 const http = require('http');
 app.use(cors())
 var server = app.listen(process.env.PORT||4000);
+
 var io = require('socket.io')(server, {
     cors: {
       origin: '*',
     }
 });
-  
-
-  
+  console.log("started!");
 
 
 
