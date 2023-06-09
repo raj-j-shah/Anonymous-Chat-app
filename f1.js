@@ -1,17 +1,27 @@
-const express = require('express');
+const express = require('express')
+const app = express()
+const server = require('http').createServer(app);
+const io = require('socket.io')(server)
+
+
+// Magic Lines
+server.prependListener("request", (req, res) => {
+   res.setHeader("Access-Control-Allow-Origin", "*");
+});
+// instead of "*" your can also add the other domain/servername
+server.listen(process.env.PORT||4000, () => {
+   console.log("This is the socket server running");
+});
+
 const {instrument} = require('@socket.io/admin-ui')
 const cors = require('cors')
-const app = express();
-const {Server} = require('socket.io');
-const http = require('http');
-app.use(cors())
-var server = app.listen(process.env.PORT||4000);
 
-var io = require('socket.io')(server, {
-    cors: {
-      origin: '*'
-    }
-});
+
+app.use(cors())
+
+
+
+
   console.log("started!");
 
 
